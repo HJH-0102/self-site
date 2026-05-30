@@ -453,18 +453,6 @@
             font-size: 14px;
             color: #86868b;
         }
-
-        .contact-text a {
-            color: #007AFF;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .section { padding: 100px 20px 60px; }
-            .projects-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
@@ -632,11 +620,11 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <span class="contact-icon">📧</span>
-                        <span class="contact-text">邮箱：<a href="mailto:h.1.2@qq.com">h.1.2@qq.com</a></span>
+                        <span class="contact-text">邮箱：h.1.2@qq.com</span>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">💻</span>
-                        <span class="contact-text">GitHub：<a href="https://github.com/HJH-0102" target="_blank">github.com/HJH-0102</a></span>
+                        <span class="contact-text">GitHub：github.com/HJH-0102</span>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">💬</span>
@@ -659,15 +647,12 @@
 
             isAnimating = true;
 
-            // Update active section
             sections[currentSection].classList.remove('active');
             sections[index].classList.add('active');
 
-            // Update nav links
             navLinks.forEach(link => link.classList.remove('active'));
             navLinks[index].classList.add('active');
 
-            // Update scroll dots
             scrollDots.forEach(dot => dot.classList.remove('active'));
             scrollDots[index].classList.add('active');
 
@@ -678,7 +663,6 @@
             }, 600);
         }
 
-        // Navigation links
         navLinks.forEach((link, index) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -686,14 +670,12 @@
             });
         });
 
-        // Scroll dots
         scrollDots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 goToSection(index);
             });
         });
 
-        // Scroll arrows
         document.querySelectorAll('.scroll-arrow').forEach(arrow => {
             arrow.addEventListener('click', () => {
                 const target = parseInt(arrow.dataset.section);
@@ -701,7 +683,6 @@
             });
         });
 
-        // Mouse wheel
         let wheelTimeout;
         window.addEventListener('wheel', (e) => {
             if (isAnimating) return;
@@ -716,7 +697,6 @@
             }, 50);
         }, { passive: true });
 
-        // Keyboard
         window.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowDown' || e.key === 'PageDown') {
                 e.preventDefault();
@@ -727,7 +707,6 @@
             }
         });
 
-        // Touch
         let touchStartY = 0;
         window.addEventListener('touchstart', (e) => {
             touchStartY = e.touches[0].clientY;
